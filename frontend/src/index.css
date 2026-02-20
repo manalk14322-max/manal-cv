@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply m-0 min-h-screen bg-slate-100 text-slate-900 antialiased;
+  background-image: radial-gradient(circle at 20% 10%, rgba(47, 107, 255, 0.16), transparent 38%),
+    radial-gradient(circle at 80% 15%, rgba(31, 84, 212, 0.1), transparent 42%);
+}
+
+@page {
+  size: A4;
+  margin: 12mm;
+}
+
+@media print {
+  html,
+  body {
+    background: #fff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  body.printing-resume * {
+    visibility: hidden !important;
+  }
+
+  body.printing-resume .resume-print-area,
+  body.printing-resume .resume-print-area * {
+    visibility: visible !important;
+  }
+
+  body.printing-resume .resume-print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  .resume-print-area article {
+    border: none !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .resume-print-area section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
