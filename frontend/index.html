@@ -7,6 +7,16 @@
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
     <title>AI Resume Generator</title>
+    <script>
+      (function () {
+        var host = window.location.hostname;
+        var canonicalHost = "manal-cv.vercel.app";
+        var isVercelPreview = host.endsWith(".vercel.app") && host !== canonicalHost;
+        if (isVercelPreview) {
+          window.location.replace("https://" + canonicalHost + window.location.pathname + window.location.search + window.location.hash);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
