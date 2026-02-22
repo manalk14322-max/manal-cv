@@ -1,7 +1,11 @@
 import axios from "axios";
 
+const envApiUrl = String(import.meta.env.VITE_API_URL || "").trim();
+const isVercelHost = typeof window !== "undefined" && window.location.hostname.endsWith(".vercel.app");
+const fallbackProdApiUrl = "https://manal-cv-estr.vercel.app/api";
+
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000/api",
+  baseURL: envApiUrl || (isVercelHost ? fallbackProdApiUrl : "http://localhost:5000/api"),
   timeout: 15000,
   headers: {
     "Content-Type": "application/json",
