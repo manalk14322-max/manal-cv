@@ -23,7 +23,11 @@ function Login() {
       localStorage.setItem("user", JSON.stringify(response.data.user));
       navigate("/dashboard");
     } catch (err) {
-      setError(err.response?.data?.message || "Login failed");
+      if (!err.response) {
+        setError("Server connect nahi ho raha. 10 sec wait karke dobara try karein.");
+      } else {
+        setError(err.response?.data?.message || "Login failed");
+      }
     } finally {
       setLoading(false);
     }

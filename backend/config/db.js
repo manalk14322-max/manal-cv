@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 
 // Attempt MongoDB connection; if unavailable, continue in fallback mode.
 const connectDB = async () => {
+  if (mongoose.connection.readyState === 1) return;
+
   try {
     await mongoose.connect(process.env.MONGO_URI);
     console.log("MongoDB connected");

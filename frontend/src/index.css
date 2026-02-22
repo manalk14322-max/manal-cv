@@ -12,6 +12,7 @@ body {
   @apply m-0 min-h-screen bg-slate-100 text-slate-900 antialiased;
   background-image: radial-gradient(circle at 20% 10%, rgba(47, 107, 255, 0.16), transparent 38%),
     radial-gradient(circle at 80% 15%, rgba(31, 84, 212, 0.1), transparent 42%);
+  overflow-x: hidden;
 }
 
 @page {
