@@ -54,6 +54,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/health", async (req, res) => {
+  // Ensure DB connection attempt runs on every serverless invocation.
+  await connectDB();
   const dbStatus = getDbStatus();
   const dbConnected = dbStatus.dbConnected;
   const ollamaReachable = await checkOllamaReachable();
@@ -77,6 +79,8 @@ app.get("/api/health", async (req, res) => {
 });
 
 app.get("/health", async (req, res) => {
+  // Ensure DB connection attempt runs on every serverless invocation.
+  await connectDB();
   const dbStatus = getDbStatus();
   const dbConnected = dbStatus.dbConnected;
   const ollamaReachable = await checkOllamaReachable();

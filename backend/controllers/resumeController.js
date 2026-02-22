@@ -1,6 +1,7 @@
 const OpenAI = require("openai");
 const mongoose = require("mongoose");
 const { randomUUID } = require("crypto");
+const connectDB = require("../config/db");
 const Resume = require("../models/Resume");
 const { readStore, writeStore } = require("../utils/fallbackStore");
 
@@ -716,6 +717,7 @@ const fallbackImproveSection = ({ sectionKey, currentText, targetRole }) => {
 // Generate resume text from user profile data and store in MongoDB.
 const generateResume = async (req, res) => {
   try {
+    await connectDB();
     const inputData = normalizeInputData(req.body);
 
     if (!inputData.fullName || !inputData.jobTitle) {
@@ -800,6 +802,7 @@ const generateResume = async (req, res) => {
 // Fetch all generated resumes for authenticated user.
 const getResumeHistory = async (req, res) => {
   try {
+    await connectDB();
     if (isDbReady()) {
       const resumes = await Resume.find({ user: req.user.id }).sort({ createdAt: -1 });
       return res.status(200).json({ resumes });
@@ -818,6 +821,7 @@ const getResumeHistory = async (req, res) => {
 
 const generateResumeFromPrompt = async (req, res) => {
   try {
+    await connectDB();
     const { prompt } = req.body;
 
     if (!prompt || String(prompt).trim().length < 20) {

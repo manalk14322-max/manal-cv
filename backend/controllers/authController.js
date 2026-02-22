@@ -2,6 +2,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 const { randomUUID } = require("crypto");
+const connectDB = require("../config/db");
 const User = require("../models/User");
 const { readStore, writeStore } = require("../utils/fallbackStore");
 
@@ -14,6 +15,7 @@ const isDbReady = () => mongoose.connection.readyState === 1;
 // Register a new user with hashed password.
 const signup = async (req, res) => {
   try {
+    await connectDB();
     const { name, email, password } = req.body;
 
     if (!name || !email || !password) {
@@ -81,6 +83,7 @@ const signup = async (req, res) => {
 // Authenticate user and return JWT.
 const login = async (req, res) => {
   try {
+    await connectDB();
     const { email, password } = req.body;
 
     if (!email || !password) {
