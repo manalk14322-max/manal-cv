@@ -206,7 +206,7 @@ function PromptBuilder() {
 
   return (
     <section className="space-y-6">
-      <div className="no-print rounded-2xl border border-slate-200 bg-white p-6 shadow-panel">
+      <div className="no-print rounded-2xl border border-slate-200 bg-white p-4 shadow-panel sm:p-6">
         <h1 className="mb-2 text-2xl font-extrabold">Prompt CV Builder</h1>
         <p className="mb-4 text-sm text-slate-600">
           Jo style chahiye seedha prompt mein likhein. App usi prompt ke mutabiq professional, ATS-friendly CV generate karega.
@@ -243,7 +243,7 @@ function PromptBuilder() {
           <button
             type="submit"
             disabled={loading}
-            className="rounded-lg bg-brand-600 px-5 py-3 text-sm font-bold text-white hover:bg-brand-700 disabled:cursor-not-allowed disabled:bg-brand-300"
+            className="w-full rounded-lg bg-brand-600 px-5 py-3 text-sm font-bold text-white hover:bg-brand-700 disabled:cursor-not-allowed disabled:bg-brand-300 sm:w-auto"
           >
             {loading ? "Generating from Prompt..." : "Generate CV from Prompt"}
           </button>
@@ -254,7 +254,7 @@ function PromptBuilder() {
         <div className="space-y-4">
           <div className="no-print flex flex-wrap items-center justify-between gap-3">
             <h2 className="text-xl font-extrabold">Prompt Generated CV</h2>
-            <div className="flex gap-2">
+            <div className="grid w-full gap-2 sm:flex sm:w-auto">
               <button
                 type="button"
                 onClick={() => setOnePageMode((prev) => !prev)}
@@ -286,7 +286,7 @@ function PromptBuilder() {
             </div>
           </div>
 
-          <div className="no-print rounded-2xl border border-slate-200 bg-white p-4 shadow-panel">
+          <div className="no-print rounded-2xl border border-slate-200 bg-white p-3 shadow-panel sm:p-4">
             <p className="mb-3 text-sm font-semibold text-slate-700">Choose Premium Template</p>
             <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3">
               {Object.entries(RESUME_TEMPLATES).map(([key, value]) => (
@@ -304,7 +304,7 @@ function PromptBuilder() {
             </div>
           </div>
 
-          <div className="no-print rounded-2xl border border-slate-200 bg-white p-4 shadow-panel">
+          <div className="no-print rounded-2xl border border-slate-200 bg-white p-3 shadow-panel sm:p-4">
             <div className="mb-3 flex items-center justify-between gap-3">
               <p className="text-sm font-semibold text-slate-700">Style Controls</p>
               <button

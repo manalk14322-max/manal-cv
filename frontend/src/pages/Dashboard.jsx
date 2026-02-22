@@ -187,7 +187,7 @@ function Dashboard() {
         </div>
       )}
 
-      <div className="no-print rounded-2xl border border-slate-200 bg-white p-6 shadow-panel">
+      <div className="no-print rounded-2xl border border-slate-200 bg-white p-4 shadow-panel sm:p-6">
         <h1 className="mb-2 text-2xl font-extrabold">Quick Professional CV Builder</h1>
         <p className="mb-6 text-sm text-slate-600">Just add basics, and app automatically writes summary, competencies, and professional sections.</p>
 
@@ -241,7 +241,7 @@ function Dashboard() {
         <div className="space-y-4">
           <div className="no-print flex flex-wrap items-center justify-between gap-3">
             <h2 className="text-xl font-extrabold">Generated CV</h2>
-            <div className="flex gap-2">
+            <div className="grid w-full gap-2 sm:flex sm:w-auto">
               <button
                 type="button"
                 onClick={() => setOnePageMode((prev) => !prev)}
@@ -273,7 +273,7 @@ function Dashboard() {
             </div>
           </div>
 
-          <div className="no-print rounded-2xl border border-slate-200 bg-white p-4 shadow-panel">
+          <div className="no-print rounded-2xl border border-slate-200 bg-white p-3 shadow-panel sm:p-4">
             <p className="mb-3 text-sm font-semibold text-slate-700">Choose Premium Template</p>
             <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3">
               {Object.entries(RESUME_TEMPLATES).map(([key, value]) => (

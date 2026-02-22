@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <main className="mx-auto w-full max-w-6xl px-4 py-8">
+      <main className="mx-auto w-full max-w-6xl px-3 py-4 sm:px-4 sm:py-8">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />

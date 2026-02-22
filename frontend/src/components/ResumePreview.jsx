@@ -70,7 +70,7 @@ const cleanLine = (line) =>
     .replace(/\*\*/g, "")
     .replace(/`/g, "")
     .replace(/^#{1,6}\s*/g, "")
-    .replace(/^[-*•]\s*/g, "")
+    .replace(/^[-*ï¿½]\s*/g, "")
     .replace(/^\d+[.)]\s*/g, "")
     .trim();
 
@@ -179,11 +179,11 @@ function SectionView({ title, items, markerColor = "#334155", card = false, sect
     return (
       <section className="mb-4 rounded-xl border border-slate-200 bg-white p-4" style={sectionStyle}>
         <h3 className="mb-2 text-xs font-extrabold uppercase tracking-[0.18em] text-slate-500">{title}</h3>
-        <ul className="space-y-1.5 text-sm leading-6 text-slate-700">
+        <ul className="space-y-1.5 break-words text-sm leading-6 text-slate-700">
           {items.map((item, idx) => (
             <li key={`${title}-${idx}`} className="flex items-start gap-2">
               <span className="mt-2 h-1.5 w-1.5 rounded-full" style={dot} />
-              <span>{item}</span>
+              <span className="break-words">{item}</span>
             </li>
           ))}
         </ul>
@@ -194,11 +194,11 @@ function SectionView({ title, items, markerColor = "#334155", card = false, sect
   return (
     <section className="mb-5">
       <h3 className="mb-2 border-b border-slate-200 pb-1 text-[11px] font-extrabold uppercase tracking-[0.2em] text-slate-500">{title}</h3>
-      <ul className="space-y-1.5 text-sm leading-6 text-slate-700">
+      <ul className="space-y-1.5 break-words text-sm leading-6 text-slate-700">
         {items.map((item, idx) => (
           <li key={`${title}-${idx}`} className="flex items-start gap-2">
             <span className="mt-2 h-1.5 w-1.5 rounded-full" style={dot} />
-            <span>{item}</span>
+            <span className="break-words">{item}</span>
           </li>
         ))}
       </ul>
@@ -320,8 +320,8 @@ function ResumePreview({ resumeText, template = "corporate", editable = false, o
     return (
       <article className="overflow-hidden rounded-2xl border border-slate-300 bg-white shadow-panel" style={rootStyle}>
         <div className="border-b border-slate-200 px-6 py-5">
-          <h2 className="text-2xl font-black text-slate-900">{parsed.fullName}</h2>
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-600">{parsed.jobTitle}</p>
+          <h2 className="break-words text-xl font-black text-slate-900 sm:text-2xl">{parsed.fullName}</h2>
+          <p className="break-words text-xs font-semibold uppercase tracking-[0.12em] text-slate-600 sm:text-sm sm:tracking-[0.14em]">{parsed.jobTitle}</p>
         </div>
         <div className="grid gap-6 p-6 md:grid-cols-2">
           <div>{sideSections.map(([key, label]) => renderSection(key, label))}</div>
@@ -337,8 +337,8 @@ function ResumePreview({ resumeText, template = "corporate", editable = false, o
         <div className="px-6 py-6 text-white" style={heroStyle}>
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div>
-              <h2 className="text-2xl font-black">{parsed.fullName}</h2>
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] opacity-90">{parsed.jobTitle}</p>
+              <h2 className="break-words text-xl font-black sm:text-2xl">{parsed.fullName}</h2>
+              <p className="break-words text-xs font-semibold uppercase tracking-[0.12em] opacity-90 sm:text-sm sm:tracking-[0.16em]">{parsed.jobTitle}</p>
             </div>
             <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-bold">{RESUME_TEMPLATES.modern.badge}</span>
           </div>
@@ -364,20 +364,20 @@ function ResumePreview({ resumeText, template = "corporate", editable = false, o
                 <input
                   value={parsed.fullName}
                   onChange={(e) => updateParsed((prev) => ({ ...prev, fullName: e.target.value }))}
-                  className="w-full bg-transparent text-2xl font-extrabold tracking-tight placeholder:opacity-70 focus:outline-none"
+                  className="w-full bg-transparent break-words text-xl font-extrabold tracking-tight sm:text-2xl placeholder:opacity-70 focus:outline-none"
                   placeholder="Candidate Name"
                 />
                 <input
                   value={parsed.jobTitle}
                   onChange={(e) => updateParsed((prev) => ({ ...prev, jobTitle: e.target.value }))}
-                  className="mt-1 w-full bg-transparent text-sm font-semibold uppercase tracking-[0.16em] placeholder:opacity-70 focus:outline-none"
+                  className="mt-1 w-full break-words bg-transparent text-xs font-semibold uppercase tracking-[0.12em] placeholder:opacity-70 focus:outline-none sm:text-sm sm:tracking-[0.16em]"
                   placeholder="Target Role"
                 />
               </>
             ) : (
               <>
-                <h2 className="text-2xl font-extrabold tracking-tight">{parsed.fullName}</h2>
-                <p className="mt-1 text-sm font-semibold uppercase tracking-[0.16em] opacity-80">{parsed.jobTitle}</p>
+                <h2 className="break-words text-xl font-extrabold tracking-tight sm:text-2xl">{parsed.fullName}</h2>
+                <p className="mt-1 break-words text-xs font-semibold uppercase tracking-[0.12em] opacity-80 sm:text-sm sm:tracking-[0.16em]">{parsed.jobTitle}</p>
               </>
             )}
           </div>
