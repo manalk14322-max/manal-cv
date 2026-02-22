@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const mongoose = require("mongoose");
 const connectDB = require("./config/db");
+const { getDbStatus } = require("./config/db");
 
 const authRoutes = require("./routes/authRoutes");
 const resumeRoutes = require("./routes/resumeRoutes");
@@ -54,7 +54,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/health", async (req, res) => {
-  const dbConnected = mongoose.connection.readyState === 1;
+  const dbStatus = getDbStatus();
+  const dbConnected = dbStatus.dbConnected;
   const ollamaReachable = await checkOllamaReachable();
 
   let aiMode = "template";
@@ -64,6 +65,9 @@ app.get("/api/health", async (req, res) => {
   res.status(200).json({
     message: "API is running",
     dbConnected,
+    hasMongoUri: dbStatus.hasMongoUri,
+    mongoEnvKey: dbStatus.mongoEnvKey,
+    dbError: dbConnected ? "" : dbStatus.dbError,
     openAiConfigured: hasRealOpenAIKey,
     ollamaEnabled: hasOllamaConfigured,
     ollamaReachable,
@@ -73,7 +77,8 @@ app.get("/api/health", async (req, res) => {
 });
 
 app.get("/health", async (req, res) => {
-  const dbConnected = mongoose.connection.readyState === 1;
+  const dbStatus = getDbStatus();
+  const dbConnected = dbStatus.dbConnected;
   const ollamaReachable = await checkOllamaReachable();
 
   let aiMode = "template";
@@ -83,6 +88,9 @@ app.get("/health", async (req, res) => {
   res.status(200).json({
     message: "API is running",
     dbConnected,
+    hasMongoUri: dbStatus.hasMongoUri,
+    mongoEnvKey: dbStatus.mongoEnvKey,
+    dbError: dbConnected ? "" : dbStatus.dbError,
     openAiConfigured: hasRealOpenAIKey,
     ollamaEnabled: hasOllamaConfigured,
     ollamaReachable,
