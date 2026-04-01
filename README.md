@@ -1,6 +1,6 @@
-﻿# KK Group of Companies Website
+# KK Group of Companies
 
-Corporate website for KK Group of Companies, a multi-national business group focused on:
+Corporate website for a multi-national business group delivering integrated services across:
 
 - Business Support Services
 - Cars Sale & Purchase
@@ -9,37 +9,39 @@ Corporate website for KK Group of Companies, a multi-national business group foc
 - IT & Digital Services
 - Investment & Funding Services
 
-## Active Site
+## Website Overview
 
-- `kk-website/` - public corporate website built with React + Vite
+This website is designed as a premium corporate presence for KK Group of Companies. It presents a clear brand identity, international positioning, and a streamlined experience for clients, investors, and business partners.
+
+## Main Sections
+
+- Home
+- About
+- Services
+- Portfolio
+- Blog
+- Contact
+- Investor Login
+- Admin Dashboard
+
+## Highlights
+
+- Premium corporate layout
+- Responsive design for mobile, tablet, and desktop
+- WhatsApp contact entry points
+- Investor and admin-ready pages
+- Custom domain support
+- Client-focused service structure
+
+## Live Site
+
 - Custom domain: `akkgroups.com`
-- GitHub Pages serves the built output from the `kk-website` directory
 
-## What is included
+## Project Notes
 
-- Home page
-- About page
-- Service detail pages
-- Portfolio page
-- Blog page
-- Contact page
-- Investor login and admin dashboard structure
-- WhatsApp and live chat entry points
+- The repository is structured to keep the public website focused on the KK Group brand.
+- Any older demo or experiment folders are kept separate from the active corporate site.
 
-## Local Development
+## For Updates
 
-```bash
-cd kk-website
-npm install
-npm run dev
-```
-
-## Deployment
-
-- GitHub Pages publishes the built `kk-website/dist` output
-- The site is configured for the `akkgroups.com` custom domain
-
-## Notes
-
-- Older demo folders are not part of the active corporate website
-- The repo has been cleaned to keep the public site focused on the KK Group brand
+If the client wants future design edits, service updates, or new sections, they can be added directly to the KK Group website structure.
