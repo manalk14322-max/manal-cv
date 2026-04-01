@@ -41,5 +41,5 @@ npm run dev
 
 ## Notes
 
-- Old demo resume-app folders are not part of the active corporate website
+- Older demo folders are not part of the active corporate website
 - The repo has been cleaned to keep the public site focused on the KK Group brand
