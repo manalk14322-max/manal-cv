@@ -1,11 +1,9 @@
 name: Deploy KK Website to GitHub Pages
 
+# Disable automatic push-triggered deploys because the site is already
+# published by the working GitHub Pages deployment path. Keep this workflow
+# available for manual runs only, so it does not keep showing red failures.
 on:
-  push:
-    branches: ["main"]
-    paths:
-      - "kk-website/**"
-      - ".github/workflows/deploy-kk-website-pages.yml"
   workflow_dispatch:
 
 permissions:
